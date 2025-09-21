@@ -29,7 +29,7 @@ resource "aws_ce_anomaly_subscription" "realtime_subscription" {
   monitor_arn_list = var.create_anomaly_monitor ? [aws_ce_anomaly_monitor.anomaly_monitor[0].arn] : [var.anomaly_monitor_arn]
 
   subscriber {
-    type    = var.sns_topic != "" ? "SNS" : "EMAIL"
-    address = var.sns_topic != "" ? var.sns_topic : var.email_address
+    type    = "SNS"
+    address = var.sns_topic
   }
 }

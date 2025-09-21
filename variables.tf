@@ -4,11 +4,6 @@ variable "sns_topic" {
   default     = ""
 }
 
-variable "email_address" {
-  description = "Email address for anomaly subscription (optional, only one subscriber allowed)"
-  type        = string
-  default     = ""
-}
 variable "raise_amount_percent" {
   type        = string
   description = "An Expression object used to specify the anomalies that you want to generate alerts for. The precentage service cost increase than the expected"
