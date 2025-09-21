@@ -1,10 +1,13 @@
-variable "subscribers" {
-  type = list(object({
-    type    = string # "SNS" or "EMAIL"
-    address = string # SNS ARN or email address
-  }))
-  description = "List of subscribers to notify when a new anomaly is detected"
-  default     = []
+variable "sns_topic" {
+  description = "SNS topic ARN for anomaly subscription (optional, only one subscriber allowed)"
+  type        = string
+  default     = ""
+}
+
+variable "email_address" {
+  description = "Email address for anomaly subscription (optional, only one subscriber allowed)"
+  type        = string
+  default     = ""
 }
 variable "raise_amount_percent" {
   type        = string

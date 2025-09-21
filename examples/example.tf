@@ -5,10 +5,7 @@ resource "aws_sns_topic" "sns_topic" {
 module "cost-anomaly-detector" {
   source                 = "../"
 
-subscribers = [
-  { type = "SNS", address = aws_sns_topic.sns_topic.arn },
-  { type = "EMAIL", address = "example@example.com" }
-]
+  sns_topic = aws_sns_topic.sns_topic.arn
   create_anomaly_monitor = true
   raise_amount_percent   = "10"
   raise_amount_absolute  = "15"
