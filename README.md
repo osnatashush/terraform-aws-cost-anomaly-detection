@@ -40,19 +40,18 @@ module "cost-anomaly-detector-example" {
 ```
 
 <!-- BEGIN_TF_DOCS -->
-
 ## Requirements
 
-| Name                                                                     | Version  |
-| ------------------------------------------------------------------------ | -------- |
-| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 0.13  |
-| <a name="requirement_aws"></a> [aws](#requirement_aws)                   | >= 4.0.0 |
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.0.0 |
 
 ## Providers
 
-| Name                                             | Version  |
-| ------------------------------------------------ | -------- |
-| <a name="provider_aws"></a> [aws](#provider_aws) | >= 4.0.0 |
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.0.0 |
 
 ## Modules
 
@@ -60,27 +59,25 @@ No modules.
 
 ## Resources
 
-| Name                                                                                                                                                     | Type     |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| [aws_ce_anomaly_monitor.anomaly_monitor](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ce_anomaly_monitor)                 | resource |
+| Name | Type |
+|------|------|
+| [aws_ce_anomaly_monitor.anomaly_monitor](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ce_anomaly_monitor) | resource |
 | [aws_ce_anomaly_subscription.realtime_subscription](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ce_anomaly_subscription) | resource |
 
 ## Inputs
 
-| Name                                                                                                | Description                                                                                                                                     | Type          | Default | Required |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------- | :------: |
-| <a name="input_anomaly_monitor_arn"></a> [anomaly_monitor_arn](#input_anomaly_monitor_arn)          | The arn of the anomaly monitor, only if the create_anomaly_monitor is false                                                                     | `string`      | `""`    |    no    |
-| <a name="input_create_anomaly_monitor"></a> [create_anomaly_monitor](#input_create_anomaly_monitor) | Boolian for create anomaly_monitor or use an exist one                                                                                          | `bool`        | `true`  |    no    |
-| <a name="input_email"></a> [email](#input_email)                                                    | Email to notify                                                                                                                                 | `string`      | `""`    |    no    |
-| <a name="input_raise_amount_absolute"></a> [raise_amount_absolute](#input_raise_amount_absolute)    | The Absolut increase in USD to trigger the detector. (ANOMALY_TOTAL_IMPACT_ABSOLUTE)                                                            | `string`      | n/a     |   yes    |
-| <a name="input_raise_amount_percent"></a> [raise_amount_percent](#input_raise_amount_percent)       | An Expression object used to specify the anomalies that you want to generate alerts for. The precentage service cost increase than the expected | `string`      | n/a     |   yes    |
-| <a name="input_resource_tags"></a> [resource_tags](#input_resource_tags)                            | Tags to set for all resources                                                                                                                   | `map(string)` | `{}`    |    no    |
-| <a name="input_sns_topic"></a> [sns_topic](#input_sns_topic)                                        | SNS Topic to notify                                                                                                                             | `string`      | `""`    |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_anomaly_monitor_arn"></a> [anomaly\_monitor\_arn](#input\_anomaly\_monitor\_arn) | The arn of the anomaly monitor, only if the create\_anomaly\_monitor is false | `string` | `""` | no |
+| <a name="input_create_anomaly_monitor"></a> [create\_anomaly\_monitor](#input\_create\_anomaly\_monitor) | Boolian for create anomaly\_monitor or use an exist one | `bool` | `true` | no |
+| <a name="input_raise_amount_absolute"></a> [raise\_amount\_absolute](#input\_raise\_amount\_absolute) | The Absolut increase in USD to trigger the detector. (ANOMALY\_TOTAL\_IMPACT\_ABSOLUTE) | `string` | n/a | yes |
+| <a name="input_raise_amount_percent"></a> [raise\_amount\_percent](#input\_raise\_amount\_percent) | An Expression object used to specify the anomalies that you want to generate alerts for. The precentage service cost increase than the expected | `string` | n/a | yes |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Tags to set for all resources | `map(string)` | `{}` | no |
+| <a name="input_subscribers"></a> [subscribers](#input\_subscribers) | List of subscribers to notify when a new anomaly is detected | <pre>list(object({<br/>    type    = string # "SNS" or "EMAIL"<br/>    address = string # SNS ARN or email address<br/>  }))</pre> | `[]` | no |
 
 ## Outputs
 
 No outputs.
-
 <!-- END_TF_DOCS -->
 
 ## information
